@@ -46,15 +46,17 @@ DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 ```
 
-8. 
+8. アプリの暗号化キー（APP_KEY）を生成
 ```bash
 php artisan key:generate
 ```
 
+9. マイグレーション実行
 ```bash
 php artisan migrate
 ```
 
+10. シーディング実行
 ```bash
 php artisan db:seed
 ```
