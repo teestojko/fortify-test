@@ -46,6 +46,7 @@ DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 ```
 
+8. 
 ```bash
 php artisan key:generate
 ```
