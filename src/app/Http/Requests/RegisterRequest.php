@@ -13,18 +13,36 @@ class RegisterRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true; // false→true に変更
     }
 
     /**
-     * Get the validation rules that apply to the request.
+     * 会員登録画面のバリデーションルール
      *
-     * @return array
+     * @return array<string, mixed>
      */
-    public function rules()
+    public function rules(): array
+    {
+        // ============== 追加 =================
+        return [
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required', 'min:8', 'confirmed'],
+        ];
+        // ============== 追加 end =================
+    }
+
+    // ============== 追加 =================
+    public function messages(): array
     {
         return [
-            //
+            'name.required' => 'お名前を入力してください',
+            'email.required' => 'メールアドレスを入力してください',
+            'email.email' => 'メールアドレスはメール形式で入力してください',
+            'password.required' => 'パスワードを入力してください',
+            'password.min' => 'パスワードは8文字以上で入力してください',
+            'password.confirmed' => 'パスワードと一致しません',
         ];
     }
+    // ============== 追加 end =================
 }

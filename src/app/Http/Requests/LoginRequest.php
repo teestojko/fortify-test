@@ -13,7 +13,7 @@ class LoginRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true; // false→true に変更
     }
 
     /**
@@ -23,8 +23,24 @@ class LoginRequest extends FormRequest
      */
     public function rules()
     {
+        // ============== 追加 =================
         return [
-            //
+            // メールアドレスの形式をチェックする
+            'email' => ['required'],
+
+            // パスワードが空でないことをチェックする
+            'password' => ['required'],
+        ];
+        // ============== 追加 end =================
+    }
+
+    // ============== 追加 =================
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'メールアドレスを入力してください',
+            'password.required' => 'パスワードを入力してください',
         ];
     }
+    // ============== 追加 end =================
 }
