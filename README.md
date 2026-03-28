@@ -2,14 +2,14 @@
 
 ・Laravel８（旧教材）
 ・フリマ用遷移入り
-・メール認証なし
+
 
 ### 環境構築
 
 1. プロジェクトをクローン
-```bash
+
 git clone git@github.com:teestojko/fortify-test.git
-```
+
 
 2. プロジェクトへ移動
 ```bash
